@@ -9,6 +9,8 @@ import generateToken from "../utils/generateToken.js";
 const register = asyncWrapper(async (req, res, next) => {
   const { firstName, lastName, email, password, role } = req.body;
   const profileImage = req.file.filename;
+  console.log(profileImage);
+  
   if (!firstName) {
     const error = appError.create("First Name Required", 401, ERROR);
     return next(error);
